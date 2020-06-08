@@ -1,0 +1,35 @@
+.container {
+    margin: 10px auto;
+    width: 350px;
+}
+.form-check-inline {
+    margin: 15px 0px 15px;
+}
+button#start {
+    width: 150px;
+    margin-left: 72px;
+}
+input {
+    margin-left: 10px;
+    width: 40px;
+    text-align: right;
+}
+input.answer {
+    text-align: left;
+    margin-left: 3px;
+}
+button.answer {
+    width: 130px;
+    margin-left: 10px;
+}
+label#attempt {
+    width: 25px;
+    text-align: right;
+}
+label.example {
+    width: 65px;
+    text-align: right;
+}
+img#rating {
+    margin: 0px auto 0px 80%;
+} 

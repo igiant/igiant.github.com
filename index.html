@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Умножай</title>
+</head>
+<body>
+    <div id="app" class="container">
+        <div class="input mt-4">
+            <div class="form-group">
+                <label for="limit">Максимальное значение:</label>
+                <input type="text" v-model="limit" placeholder="9" :disabled="paramDisabled" class="form-control" :ref="'limit'" @keyup.enter="quantitySet">
+            </div>
+            <div class="form-group">
+                <label for="count">Количество попыток:</label>
+                <input type="text" v-model="quantity" placeholder="10" :disabled="paramDisabled" class="form-control" :ref="'quantity'" @keyup.enter="starting">
+            </div>
+            <div class="form-check form-check-inline">
+            <input class="form-check-input check" type="checkbox" v-model="divChecked" :disabled="paramDisabled" id="check">
+            <label class="form-check-label check" for="check">Деление</label>
+            <button @click="starting" class="btn btn-primary start" v-text="startCaption" :disabled="paramDisabled" id="start"></button>
+            </div>
+        </div>
+        <div class="container" v-for="(item, index) in examples">
+            <div class="container">
+                <label :for="index" id="attempt"  v-text="index+1+')'">)</label>
+                <label :for="index" class="example" v-text="item.example"></label>
+                <input :ref="'input_' + index" type="text" v-model="item.answer" class="answer" @keyup.enter=verify :id="index" :disabled="item.inputDisabled">
+                <button v-text="item.btnCaption" :class="['btn answer', item.btnClass]" @click="verify" :disabled="item.inputDisabled"></button>
+            </div>
+        </div>
+        <div class="container">
+            <img :src="img" :alt="rating" id="rating">
+        </div>
+    </div>
+    <script src="js/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <script src="js/script.js"></script>
+</body>
+</html>
