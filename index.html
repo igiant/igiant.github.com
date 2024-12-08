@@ -29,7 +29,7 @@
             <div class="container">
                 <label :for="index" id="attempt"  v-text="index+1+')'">)</label>
                 <label :for="index" class="example" v-text="item.example"></label>
-                <input :ref="'input_' + index" type="text" v-model="item.answer" class="answer" @keyup.enter=verify :id="index" :disabled="item.inputDisabled">
+                <input :ref="'input_' + index" type="text" v-model="item.answer" class="answer" @keyup.enter=verify :id="index" :disabled="item.inputDisabled" autocomplete="off">
                 <button v-text="item.btnCaption" :class="['btn answer', item.btnClass]" @click="verify" :disabled="item.inputDisabled"></button>
             </div>
         </div>
